@@ -1,0 +1,2 @@
+'use client'
+export default function ErrorPage({reset}:{reset:()=>void}){return <section className="section family-note" style={{minHeight:'70vh',display:'grid',placeItems:'center'}}><div><p className="kicker">A quiet interruption</p><h1 className="display">Something went wrong. Please try again.</h1><p className="muted">If you need immediate support, please call +254 112 272 061.</p><button className="btn" onClick={reset}>Try Again</button></div></section>}

@@ -1,0 +1,3 @@
+import type { MetadataRoute } from 'next'
+import { services } from '@/data/site'
+export default function sitemap():MetadataRoute.Sitemap{const base=process.env.NEXT_PUBLIC_SITE_URL||'https://elijahfarewellservices.co.ke';const routes=['','/pre-planning','/memorials','/grief-support','/about','/contact','/legal/privacy-policy','/legal/terms','/legal/cookie-policy'];return [...routes.map(url=>({url:base+url,lastModified:new Date(),changeFrequency:'monthly' as const,priority:url===''?1:.7})),...services.map(s=>({url:`${base}/services/${s.slug}`,lastModified:new Date(),changeFrequency:'monthly' as const,priority:.8}))]}

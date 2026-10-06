@@ -1,0 +1,7 @@
+import { NextResponse } from 'next/server'
+const articles:Record<string,string>={
+ 'What to Do Immediately After a Loss':'Pause and call someone you trust. If the death was unexpected, contact emergency services or a doctor. When you are ready, a funeral director can arrange dignified care and explain registration, documents and next decisions. You do not need to decide everything at once.',
+ 'How to Support a Grieving Friend':'Be present and specific: offer a meal, a lift or quiet company. Use the person’s name. Listen more than you speak, avoid timetables for grief, and keep checking in after the funeral.',
+ 'Children and Grief':'Use clear, age-appropriate words and reassure children that they are safe and cared for. Invite questions, allow feelings to change, and maintain familiar routines where possible. Seek a qualified counsellor when extra support would help.',
+ 'Grief and Faith':'Faith may bring comfort, questions, anger or silence. All are valid. Familiar prayers, music, community and conversation with a trusted faith leader can help, but support should always respect the grieving person’s pace.'}
+export async function GET(req:Request){const title=new URL(req.url).searchParams.get('article')||'';const article=articles[title];if(!article)return NextResponse.json({error:'Guide not found'},{status:404});return new NextResponse(`# ${title}\n\n${article}\n\nFor personal support, call Elijah Farewell Services on +254 112 272 061.`,{headers:{'Content-Type':'text/markdown; charset=utf-8','Cache-Control':'public, s-maxage=3600'}})}

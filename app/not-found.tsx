@@ -1,0 +1,2 @@
+import Link from 'next/link'
+export default function NotFound(){return <section className="section family-note" style={{minHeight:'70vh',display:'grid',placeItems:'center'}}><div><p className="kicker">404</p><h1 className="display">This page could not be found.</h1><p className="muted">The page may have moved, or the address may be incomplete.</p><Link className="btn" href="/">Return to Homepage</Link></div></section>}
