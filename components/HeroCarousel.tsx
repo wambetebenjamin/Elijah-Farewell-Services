@@ -4,9 +4,9 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 const slides = [
-  { src: '/images/hero.jpg', alt: 'A peaceful natural landscape at dawn' },
-  { src: '/images/sunrise.jpg', alt: 'Soft sunrise light over the Kenyan landscape' },
-  { src: '/images/lily-close.jpg', alt: 'A close view of a white lily' },
+  { src: '/images/memorial-flowers.png', alt: 'White memorial flowers and a candle arranged with care' },
+  { src: '/images/memorial-candles.jpg', alt: 'A quiet memorial candle in a peaceful indoor setting' },
+  { src: '/images/white-rose.jpg', alt: 'A white rose held during a memorial service' },
 ]
 
 export function HeroCarousel() {
