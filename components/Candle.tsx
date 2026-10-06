@@ -1,0 +1,4 @@
+'use client'
+import { useState } from 'react'
+import { Flame,Share2 } from 'lucide-react'
+export default function Candle({id,initial}:{id:string,initial:number}){const [count,setCount]=useState(initial),[busy,setBusy]=useState(false);async function light(){if(busy||localStorage.getItem(`candle-${id}`))return;setBusy(true);const r=await fetch('/api/candle',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id})});const j=await r.json();if(r.ok){setCount(j.count);localStorage.setItem(`candle-${id}`,'1')}setBusy(false)}const url=typeof window==='undefined'?'':window.location.href;return <><button className="candle-button" onClick={light}><Flame size={58}/><b>{count}</b><span>{busy?'Lighting…':'Light a candle in remembrance'}</span></button><a className="btn outline" href={`https://wa.me/?text=${encodeURIComponent(`Remembering this cherished life: ${url}`)}`}><Share2 size={16}/>Share This Memorial</a></>}
